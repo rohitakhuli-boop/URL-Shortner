@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <link rel="stylesheet" href="/style1.css">
+</head>
+<body>
+      <%- include('./partials/header.ejs') %>
+    
+  <div class="container">
+    <h1>URL Shortener</h1>
+
+    <form action="/shorten" method="POST">
+      <div>
+        <label for="url">Enter URL:</label>
+        <input type="url" name="url" id="url" required>
+      </div>
+
+      <div>
+        <label for="shortcode">Custom shortcode (optional):</label>
+        <input type="text" name="shortcode" id="shortcode">
+      </div>
+
+      <button type="submit">Shorten</button>
+    </form>
+
+    <h2>Shortened URLs</h2>
+    <ul>
+      <% links.map(({shortcode, url}) => { %>
+        <li>
+          <a href="/<%= shortcode %>" target="_blank">
+            <%= host %>/<%= shortcode %>
+          </a> - <%= url.length > 40 ? url.slice(0, 40) + "..." : url %>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</body>
+</html>
+
+ 
