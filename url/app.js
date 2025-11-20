@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 import { shortenedRouter } from "./routes/shortener.routes.js";
 import { authRoutes } from "./routes/auth.routes.js";  // ✅ FIX: import authRoutes
 
-const PORT = 3001;
+const PORT = 3001 ;
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
